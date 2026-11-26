@@ -9,11 +9,14 @@ Run teams of AI agents on your own machines: memory that lasts across sessions, 
 
 **[tenish.ai](https://tenish.ai)** · security reports to security@tenish.ai
 
+**Start here:** to run the whole suite on a cluster, use [stack](https://github.com/tenishai/stack). To try one piece alone, open its repo and follow the Quickstart.
+
 ```mermaid
 flowchart LR
   agent["agent<br/>(daedalus)"] -->|remembers| techne
   agent -->|calls tools| liminal
   liminal -->|fetches credentials| cabal
+  liminal -->|asks what an agent may do| bab
   cabal -->|routes tasks between agents| agent
   kobo -->|builds| agent
   kobo -->|deploys with| gojira
