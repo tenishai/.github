@@ -12,18 +12,21 @@ Run teams of AI agents on your own machines: memory that lasts across sessions, 
 **Start here:** to run the whole suite on a cluster, use [stack](https://github.com/tenishai/stack). To try one piece alone, open its repo and follow the Quickstart.
 
 ```mermaid
-flowchart LR
-  agent["agent<br/>(daedalus)"] -->|remembers| techne
-  agent -->|calls tools| liminal
-  agent -->|calls models| litellm["litellm-deploy"]
-  liminal -->|fetches credentials| cabal
-  liminal -->|asks what an agent may do| bab
-  cabal -->|routes tasks between agents| agent
-  kobo -->|builds| agent
-  kobo -->|deploys with| gojira
+flowchart TB
   stack -->|installs the suite onto| gojira
+  gojira -->|deploys and runs| suite
   gojira -->|watched by| noto
   gojira -->|secrets from| sero
+  subgraph suite["runs on gojira"]
+    kobo -->|builds| agent["agent<br/>(daedalus)"]
+    agent -->|remembers| techne
+    agent -->|calls models| litellm["litellm-deploy"]
+    agent -->|calls tools| liminal
+    liminal -->|asks what an agent may do| bab
+    liminal -->|fetches credentials| cabal
+    cabal -->|routes tasks between agents| agent
+  end
+  kobo -.->|deploys each agent through| gojira
 ```
 
 ### Agents
