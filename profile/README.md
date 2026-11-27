@@ -20,7 +20,7 @@ Run teams of AI agents on your own machines: memory that lasts across sessions, 
      IBM Plex Mono installed). -->
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/tenishai/.github/main/profile/suite-dark.png">
-  <img src="https://raw.githubusercontent.com/tenishai/.github/main/profile/suite-light.png" alt="How the suite fits together: stack installs it onto gojira, which runs it, with noto watching and sero holding secrets. On gojira, kobo builds agents (daedalus), which remember with techne, call models through litellm and tools through liminal; liminal asks bab what an agent may do and fetches credentials from cabal, which routes tasks between agents." width="100%">
+  <img src="https://raw.githubusercontent.com/tenishai/.github/main/profile/suite-light.png" alt="How the suite fits together: stack installs it onto gojira, which deploys and runs it, with noto watching and sero holding secrets. On gojira, kobo builds agents (daedalus) and deploys each one through gojira; agents remember with techne, call models through litellm and tools through liminal; liminal asks bab what an agent may do and fetches credentials from cabal, which routes tasks between agents." width="100%">
 </picture>
 
 ### Agents
