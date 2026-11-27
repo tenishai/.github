@@ -1,7 +1,7 @@
 <a href="https://tenish.ai">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="banner-dark.svg">
-    <img src="banner-light.svg" alt="Tenish: open-source software for running teams of AI agents" width="100%">
+    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/tenishai/.github/main/profile/banner-dark.png">
+    <img src="https://raw.githubusercontent.com/tenishai/.github/main/profile/banner-light.png" alt="Tenish: open-source software for running teams of AI agents" width="100%">
   </picture>
 </a>
 
@@ -11,23 +11,17 @@ Run teams of AI agents on your own machines: memory that lasts across sessions, 
 
 **Start here:** to run the whole suite on a cluster, use [stack](https://github.com/tenishai/stack). To try one piece alone, open its repo and follow the Quickstart.
 
-```mermaid
-flowchart TB
-  stack -->|installs the suite onto| gojira
-  gojira -->|deploys and runs| suite
-  gojira -->|watched by| noto
-  gojira -->|secrets from| sero
-  subgraph suite["runs on gojira"]
-    kobo -->|builds| agent["agent<br/>(daedalus)"]
-    agent -->|remembers| techne
-    agent -->|calls models| litellm["litellm-deploy"]
-    agent -->|calls tools| liminal
-    liminal -->|asks what an agent may do| bab
-    liminal -->|fetches credentials| cabal
-    cabal -->|routes tasks between agents| agent
-  end
-  kobo -.->|deploys each agent through| gojira
-```
+<!-- The diagram is an image because the GitHub mobile app shows Mermaid as source and
+     does not resolve relative image paths here. Its source is profile/suite.mmd; after
+     editing it, re-render both images with mermaid-cli and commit them:
+       mmdc -i suite.mmd -o suite-light.png -t default -b white -s 2 -w 1000
+       mmdc -i suite.mmd -o suite-dark.png -t dark -b '#0d1117' -s 2 -w 1000
+     The banner PNGs come from banner-*.svg (rsvg-convert -w 2400, with Space Grotesk and
+     IBM Plex Mono installed). -->
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/tenishai/.github/main/profile/suite-dark.png">
+  <img src="https://raw.githubusercontent.com/tenishai/.github/main/profile/suite-light.png" alt="How the suite fits together: stack installs it onto gojira, which deploys and runs it, with noto watching and sero holding secrets. On gojira, kobo builds agents (daedalus) and deploys each one through gojira; agents remember with techne, call models through litellm and tools through liminal; liminal asks bab what an agent may do and fetches credentials from cabal, which routes tasks between agents." width="100%">
+</picture>
 
 ### Agents
 

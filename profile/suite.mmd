@@ -1,0 +1,15 @@
+flowchart TB
+  stack -->|installs the suite onto| gojira
+  gojira -->|deploys and runs| suite
+  gojira -->|watched by| noto
+  gojira -->|secrets from| sero
+  subgraph suite["runs on gojira"]
+    kobo -->|builds| agent["agent<br/>(daedalus)"]
+    agent -->|remembers| techne
+    agent -->|calls models| litellm["litellm-deploy"]
+    agent -->|calls tools| liminal
+    liminal -->|asks what an agent may do| bab
+    liminal -->|fetches credentials| cabal
+    cabal -->|routes tasks between agents| agent
+  end
+  kobo -.->|deploys each agent through| gojira
